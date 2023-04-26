@@ -1,0 +1,46 @@
+GET http://localhost:3000/api/hello
+
+@token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..PM5nbJ_DvivxwGxU.qqgEqXpPEJ_oWaqu1o0fY7AJNYAyll6-7CWn3H4rvSG22ElB3Ejn_DLkq10Cs9esLm5ZnVWA8rdYhSY1J_XLxq1iDSDrClO2aTjpYkl0qI1wIS339WrWgNowl3HfAEM5OcZwiEjXfPkDb24SZ7YtBFxCgi2iZmbb0UnDbEiSFts10BKU6wN2pzskh5c.YVev3bB5yVXTqEG0tDQ-DA
+
+###
+POST http://localhost:3000/api/chats
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "Hello World 3"
+}
+
+###
+GET http://localhost:3000/api/chats
+Authorization: Bearer {{token}}
+
+###
+@chatId=1ef52d69-4a84-40be-9ed5-a79ed34f7b64
+GET http://localhost:3000/api/chats/{{chatId}}/messages
+
+
+###
+POST http://localhost:3000/api/chats/{{chatId}}/messages
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "Estou testando a API 222"
+}
+
+###
+@messageId = 5d625f4e-be66-4c36-91f1-a6e951c96513
+GET http://localhost:3000/api/messages/{{messageId}}/events
+Authorization: Bearer {{token}}
+
+###
+POST http://localhost:3000/api/generate-token
+Content-Type: application/json
+
+{
+
+}
+
+###
+GET http://localhost:3000/api/event-stream
